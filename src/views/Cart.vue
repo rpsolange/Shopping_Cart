@@ -1,7 +1,6 @@
 <template>
-  <div style="margin-top: 5rem">
-    <h1>PRODUCTOS SELECCIONADOS</h1>
-
+  <b-container class="gradient widthPage">
+    <h1 class="styleTitle">PRODUCTOS SELECCIONADOS</h1>
     <div style="margin-top: 3rem">
       <b-col v-for="(item, index) in itemSelected " :key="index">
         <Items :itemSelected="item" ></Items>
@@ -11,10 +10,12 @@
 
 
     <b-row style="margin: 4rem 1rem">
-      PRECIO TOTAL : S/. {{ totalPrice }}
-    </b-row>
+      <b-col class="orderTotal">
+        PRECIO TOTAL : S/. {{ totalPrice }}
+      </b-col>
+    </b-row> 
 
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -48,4 +49,16 @@ import Items from '@/components/Items.vue'
     } 
   }
 </script>
+
+<style>
+.widthPage{
+  min-width: 1140px !important;
+}
+
+.orderTotal{
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+</style>
 

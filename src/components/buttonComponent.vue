@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button class="btnAction" @click="eventButton">
+		<button class="btnAction" @click="eventButton" :disabled="disabledButton">
 			<slot></slot>
 		</button>
 	</div>
@@ -12,6 +12,10 @@ export default {
 	props: {
 		eventButton: {
 			type: Function
+		},
+		disabledButton: {
+			type: Boolean,
+			required: false
 		}
 	}
 }
