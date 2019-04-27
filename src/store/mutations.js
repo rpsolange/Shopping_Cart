@@ -1,7 +1,9 @@
 export default {
   ALLUSERS (state, data) {
     state.allUsers = data.data.results
-    console.log(state, "state")
+  },
+  ADDTOCART (state, data) {
+    state.usersSelectedToCart.push(data) 
   },
   authenticate: function(state, payload) {
     state.authenticate = payload;
