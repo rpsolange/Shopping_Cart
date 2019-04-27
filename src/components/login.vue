@@ -24,6 +24,7 @@ import buttonComponent from '@/components/buttonComponent'
 import inputComponent from '@/components/inputsComponent'
 
 export default {
+  name: 'login',
 	data(){
 		return {
 			buttonText: 'INGRESAR',

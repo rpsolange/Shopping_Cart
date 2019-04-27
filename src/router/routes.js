@@ -5,6 +5,8 @@ import Router from 'vue-router'
 import Login from '../components/login.vue'
 import Holi from '../components/holi.vue'
 
+//VISTAS
+import Products from '../views/Products'
 
 Vue.use(Router)
 const router = new Router({
@@ -18,6 +20,11 @@ const router = new Router({
 			path: '/holi',
 			name: 'holi',
 			component: Holi
+    },
+    {
+			path: '/products',
+			name: 'products',
+			component: Products
 		}
 	]
 })
