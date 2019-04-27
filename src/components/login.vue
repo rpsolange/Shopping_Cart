@@ -51,7 +51,7 @@ export default {
 			}
 			this.$store.dispatch("authenticate", userData);
 			if(this.$store.state.authenticate == true){
-				this.$router.replace({ name: 'holi' })
+				this.$router.replace({ name: 'products' })
 			} else {
 				this.openAlert()
 			}
