@@ -1,5 +1,6 @@
 export default {
-  userName: 'america',
+  email: 'america@americatv.pe',
   password: 'america2018',
-  allUsers: []
+  allUsers: [],
+  authenticate: false,
 }
