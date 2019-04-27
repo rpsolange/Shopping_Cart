@@ -1,7 +1,6 @@
 <template>
-   <div>
-     <div>
-       
+  <div>
+    <b-col cols="12" style="margin: 10px;">   
       <b-card
         :title= user.name.first
         :img-src= user.picture.large
@@ -31,8 +30,8 @@
         </b-row>
         <b-button variant="primary" style="margin-top: 2rem" :disabled="counter == 0" @click="addToCart(user)" > AGREGAR </b-button>
       </b-card>
-    </div>
-   </div>
+    </b-col>
+  </div>
 </template>
 
 <script>
