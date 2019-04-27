@@ -1,9 +1,12 @@
 <template>
   <div class="container">
-    <b-row>
+    <div class="text-center" style="margin-top: 6rem">
+      <b-button variant="primary" :disabled="itemsInCart.length  == 0"  @click="cart">
+        IR AL CARRITO <b-badge variant="light"> {{ itemsInCart.length }} </b-badge>
+      </b-button>
+    </div>
+    <b-row style="margin-top: 6rem">
       <b-col v-for="(user, index) in allUsers " :key="index">
-
-        <!-- {{ user }} -->
         <Cards :user="user" ></Cards>
       </b-col>
     </b-row>
@@ -24,12 +27,18 @@ export default {
    }
   },
   methods: {
-
+    cart() {
+     this.$router.replace({ name: 'cart'})
+    }
   },
   computed: {
     allUsers() {
       let users = this.$store.state.allUsers
       return users
+    },
+    itemsInCart() {
+      let totalItems = this.$store.state.usersSelectedToCart
+      return totalItems
     }
   }
 }

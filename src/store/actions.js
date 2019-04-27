@@ -8,6 +8,9 @@ export default {
       commit('ALLUSERS', res)
     })
   },
+  async addToCard ({ commit }, payload ) {
+    commit('ADDTOCART', payload)
+  }, 
   async authenticate (store, payload){
     const {mail, pass} = payload
     const {email, password} = store.state
