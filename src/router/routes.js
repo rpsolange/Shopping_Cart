@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 // COMPONENTES 
 import Login from '../components/login.vue'
+import Holi from '../components/holi.vue'
 
 
 Vue.use(Router)
@@ -12,6 +13,11 @@ const router = new Router({
 			path: '/',
 			name: 'login',
 			component: Login
+		},
+		{
+			path: '/holi',
+			name: 'holi',
+			component: Holi
 		}
 	]
 })

@@ -8,4 +8,15 @@ export default {
       commit('ALLUSERS', res)
     })
   },
+  async authenticate (store, payload){
+    const {mail, pass} = payload
+    const {email, password} = store.state
+
+    const validateEmail = (mail == email)
+    const validatePassword = (pass == password)
+
+    if(validateEmail && validatePassword){
+      store.commit("authenticate", true);
+    }
+  }
 }
