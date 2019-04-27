@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 // COMPONENTES 
 import Login from '../components/login.vue'
+import Holi from '../components/holi.vue'
 
 //VISTAS
 import Products from '../views/Products'
@@ -16,6 +17,11 @@ const router = new Router({
 			path: '/',
 			name: 'login',
 			component: Login
+		},
+		{
+			path: '/holi',
+			name: 'holi',
+			component: Holi
     },
     {
 			path: '/products',

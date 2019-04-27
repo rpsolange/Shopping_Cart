@@ -1,23 +1,62 @@
 <template>
 	<div>
 		<div class="radial-gradient">
-			<div class="row">
-				<div class="col-md-6">
+			<b-row>
+				<b-col cols="6" offset="3">
 					<form>
-						<h1>Sign in</h1>
-						<input type="email" placeholder="Email" />
-						<input type="password" placeholder="Password" />
-						<button>Sign In</button>
+						<h1>Bienvenido!</h1>
+						<inputComponent :type="'email'" :textPlaceholder="'Email'" v-model="nameModel">
+						</inputComponent>
+						<inputComponent :type="'password'" :textPlaceholder="'Contraseña'" v-model="passwordModel">
+						</inputComponent>
+						<buttonComponent :eventButton="authenticationEvent">
+							<span> {{buttonText}} </span>
+						</buttonComponent>
 					</form>
-				</div>
-			</div>
+				</b-col>
+			</b-row>
 		</div>
 	</div>
 </template>
 
 <script>
+import buttonComponent from '@/components/buttonComponent'
+import inputComponent from '@/components/inputsComponent'
+
 export default {
-	name: 'login',
+  name: 'login',
+	data(){
+		return {
+			buttonText: 'INGRESAR',
+			nameModel: '',
+			passwordModel: '',
+		}
+	},
+	components:{
+		buttonComponent,
+		inputComponent,
+	},
+	methods: {
+		openAlert (append = false) {
+			this.$bvToast.toast(`Tu correo o contraseña no es valido`, {
+				title: 'Error!',
+				autoHideDelay: 5000,
+				appendToast: append
+			})
+		},
+		authenticationEvent (){
+			let userData = {
+				mail: this.nameModel,
+				pass: this.passwordModel
+			}
+			this.$store.dispatch("authenticate", userData);
+			if(this.$store.state.authenticate == true){
+				this.$router.replace({ name: 'holi' })
+			} else {
+				this.openAlert()
+			}
+		},
+	}
 }
 </script>
 
@@ -40,63 +79,11 @@ export default {
 	}
 
 	body {
-		background: #f6f5f7;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		font-family: 'Ubuntu', sans-serif;
-	}
-
-	h1 {
-		font-weight: bold;
-		margin: 0;
-	}
-
-	h2 {
-		text-align: center;
-	}
-
-	p {
-		font-size: 14px;
-		font-weight: 100;
-		line-height: 20px;
-		letter-spacing: 0.5px;
-		margin: 20px 0 30px;
-	}
-
-	span {
-		font-size: 12px;
-	}
-
-	a {
-		color: #333;
-		font-size: 14px;
-		text-decoration: none;
-		margin: 15px 0;
-	}
-
-	button {
-		border-radius: 20px;
-		border: 1px solid #FF4B2B;
-		background-color: #FF4B2B;
-		color: #FFFFFF;
-		font-size: 12px;
-		font-weight: bold;
-		padding: 12px 45px;
-		letter-spacing: 1px;
-		outline: none;
-		text-transform: uppercase;
-		transition: transform 80ms ease-in;
-	}
-
-	button:active {
-		transform: scale(0.95);
-	}
-
-	button.ghost {
-		background-color: transparent;
-		border-color: #FFFFFF;
 	}
 
 	form {
@@ -109,15 +96,5 @@ export default {
 		height: 100%;
 		text-align: center;
 	}
-
-	input {
-		background-color: #eee;
-		border: none;
-		padding: 12px 15px;
-		margin: 8px 0;
-		outline: none;
-		width: 100%;
-	}
-
 
 </style>

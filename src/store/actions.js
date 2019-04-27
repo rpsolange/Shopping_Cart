@@ -9,8 +9,17 @@ export default {
     })
   },
   async addToCard ({ commit }, payload ) {
-    console.log(payload, "payload")
     commit('ADDTOCART', payload)
-
   }, 
+  async authenticate (store, payload){
+    const {mail, pass} = payload
+    const {email, password} = store.state
+
+    const validateEmail = (mail == email)
+    const validatePassword = (pass == password)
+
+    if(validateEmail && validatePassword){
+      store.commit("authenticate", true);
+    }
+  }
 }
