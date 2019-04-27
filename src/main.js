@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-
-import store from './store/index'
+import router from './router/routes'
 import axios from 'axios'
+import store from './store/index'
 
 Vue.use( axios)
 
@@ -14,9 +14,9 @@ Vue.config.productionTip = false
 
 new Vue({
   created() {
-    debugger
     this.$store.dispatch("getData");
   },
   store,
+  router,
   render: h => h(App),
 }).$mount('#app')
