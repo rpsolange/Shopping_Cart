@@ -4,6 +4,7 @@ export default {
   },
   ADDTOCART (state, data) {
     state.usersSelectedToCart.push(data) 
+    console.log(state, "state")
   },
   authenticate: function(state, payload) {
     state.authenticate = payload;
