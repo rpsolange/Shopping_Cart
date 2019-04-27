@@ -1,6 +1,8 @@
 export default {
   ALLUSERS (state, data) {
     state.allUsers = data.data.results
-    console.log(state, "state")
+  },
+  ADDTOCART (state, data) {
+    state.usersSelectedToCart.push(data) 
   },
 }

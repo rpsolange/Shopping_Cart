@@ -8,5 +8,9 @@ export default {
       commit('ALLUSERS', res)
     })
   },
-  
+  async addToCard ({ commit }, payload ) {
+    console.log(payload, "payload")
+    commit('ADDTOCART', payload)
+
+  }, 
 }

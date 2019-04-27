@@ -6,6 +6,8 @@ import Login from '../components/login.vue'
 
 //VISTAS
 import Products from '../views/Products'
+import Cart from '../views/Cart'
+
 
 Vue.use(Router)
 const router = new Router({
@@ -19,6 +21,11 @@ const router = new Router({
 			path: '/products',
 			name: 'products',
 			component: Products
+    },
+    {
+			path: '/cart',
+			name: 'cart',
+			component: Cart
 		}
 	]
 })

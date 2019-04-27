@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <b-row>
+
+   <b-button variant="primary" style="margin-top: 4rem" @click="cart"> IR AL CARRITO </b-button>
+
+    <b-row style="margin-top: 6rem">
       <b-col v-for="(user, index) in allUsers " :key="index">
 
         <!-- {{ user }} -->
@@ -24,7 +27,9 @@ export default {
    }
   },
   methods: {
-
+    cart() {
+     this.$router.replace({ name: 'cart'})
+    }
   },
   computed: {
     allUsers() {
